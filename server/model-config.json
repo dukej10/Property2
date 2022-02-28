@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Category": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Property": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "Email",
+    "public": true
+  },
+  "containers": {
+    "dataSource": "UploadFiles",
+    "public": true
+  },
+  "program": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Cliente": {
+    "dataSource": "db",
+    "public": true
+  },
+  "solicitud": {
+    "dataSource": "db",
+    "public": true
+  }
+}

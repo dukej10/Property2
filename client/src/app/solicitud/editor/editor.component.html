@@ -1,0 +1,72 @@
+<br>
+<br>
+<br>
+<h2 class="center">Actualización de solicitud</h2>
+<div class="row">
+<div class= "row">
+    <div class="input-field col s4">
+        <i class="material-icons prefix">account_circle</i>
+              <input [(ngModel)]="solicitud.nombre" id="nombre" type="text" class="validate" disabled>
+              <label for="nombre" class="active">Nombre</label>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">room</i>
+      <input [(ngModel)]="solicitud.direccion" id="direccion" type="text" class="validate" disabled>
+      <label for="direccion" class="active">Dirección</label>
+</div>
+</div>
+<div class="row">
+    <div class="input-field col s4">
+        <i class="material-icons prefix">account_circle</i>
+      <input [(ngModel)]="solicitud.tipo" id="tipo" type="text" class="validate" disabled>
+      <label for="tipo" class="active">Tipo</label>
+    </div>
+</div>
+<div class= "row">
+  <div class="input-field col s4">
+    <i class="material-icons prefix">attach_money</i>
+  <input [(ngModel)]="solicitud.valor" id="valor" type="text" class="validate" disabled>
+  <label for="valor" class="active">Valor</label>
+  </div>
+  <div class="input-field col s4">
+    <i class="material-icons prefix">date_range</i>
+  <input [(ngModel)]="solicitud.fecha" id="fecha" type="text" class="validate">
+  <label for="fecha" class="active">Fecha</label>
+  </div>
+  <div class="input-field col s4">
+    <i class="material-icons prefix">beenhere</i>
+  <input [(ngModel)]="solicitud.estado" id="estado" type="text" class="validate">
+  <label for="estado" class="active">Estado</label>
+  </div>
+</div>
+<div class= "row">
+<div class="input-field col s4">
+    <i class="material-icons prefix">image</i>
+          <input [(ngModel)]="solicitud.foto" id="foto" type="text" class="validate" disabled>
+          <label for="foto" class="active">foto</label>
+  </div>
+  <div class="input-field col s4">
+    <i class="material-icons prefix">account_circle</i>
+  <input [(ngModel)]="solicitud.asesor" id="asesor" type="text" class="validate">
+  <label for="asesor" class="active">Asesor</label>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="col s12">
+        <a class="waves-effect waves-light btn" (click)="updateSolicitud()"><i class="material-icons right">edit</i>Actualizar</a>
+    </div>
+</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modalUp" class="modal">
+  <div class="modal-content">
+    <h4>Inmobiliaria Mchaileh</h4>
+    <p id = "strUpMessage"></p>
+  </div>
+  <div class="modal-footer">
+    <a href="/solicitud/list" class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>

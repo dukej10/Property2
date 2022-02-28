@@ -1,0 +1,65 @@
+<br>
+<br>
+<br>
+<a routerLink="/admin/category/creator" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Agregar Categoria</a>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Code
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Tipo de solicitud
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+        <tr *ngFor="let c of categoryList | paginate: { itemsPerPage: 5, currentPage: cp, totalItems: total }" >
+            <td>
+                {{c.code}}
+            </td>
+            <td>
+                {{c.name}}
+            </td>
+            <td>
+                {{c.trequest}}
+            </td>
+            <td>
+                <a class="waves-effect waves-light btn blue" routerLink="/admin/category/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+            </td>
+            <td>
+                    <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                    <ng-template #deleteConfirmation>
+                    <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                        <a class="waves-effect waves-light btn green" (click)="deleteCategory(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                        <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                </div>
+            </ng-template>
+            </td>            
+        </tr>
+    <tbody>
+
+    </tbody>
+</table>
+
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+<!-- Modal Message -->
+<!-- <div id="deleteCMessageModal" class="modal">
+    <div class="modal-content">
+      <h4>Categoría Creada</h4>
+      <strong id="strDeleteCMessage"></strong>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+ -->

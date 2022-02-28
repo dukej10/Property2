@@ -1,0 +1,742 @@
+<br>
+<br>
+<br>
+<h2>Lista de inmuebles</h2>
+<a href="/admin/product/creator" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Agregar Inmueble</a>
+<div class="row">
+    <div  class="input-field col s6" >
+      <input [(ngModel)]="condicion"  id="first_name" type="text" class="validate">
+      <label for="first_name">Buscar</label>
+    </div>
+    <a class="waves-effect waves-light btn" (click)="condition(condicion)"><i class="material-icons right">search</i>Buscar</a>
+    
+    <br>
+  
+  
+  
+  </div>
+  <div *ngIf="condicion == null" class="">
+      
+<table>
+    <thead>
+        <tr>
+            <th>
+                Code
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Hab.
+            </th>
+            <th>
+                Baños
+            </th>
+            <th>
+                Área m<sup>2</sup>
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Valor ($)
+            </th>
+            <!-- <th>
+                Descripción
+            </th> -->
+            <th>
+                Dirección
+            </th>
+            <th>
+                OBj
+            </th>
+            <th>
+                DEPARTAMENTO
+            </th>
+            <th>
+                CIUDAD
+            </th>
+            <th>
+                ENCARGADO
+            </th>
+            <th>
+                CONTACTO
+            </th>
+            <th>
+               
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+        <tr *ngFor="let c of productList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+            <td>
+                {{c.code}}
+            </td>
+            <td>
+                {{c.name}}
+            </td>
+            <td>
+                {{c.rooms}}
+            </td>
+            <td>
+                {{c.bathrooms}}
+            </td>
+            <td>
+                {{c.area}}
+            </td>
+            <td>
+                {{c.category}}
+            </td>
+            <td>
+                {{c.price}}
+            </td>
+            <!-- <td>
+                {{c.description}}
+            </td> -->
+            <td>
+                {{c.address}}
+            </td>
+            <td>
+                {{c.tipo}}
+            </td>
+            <td>
+                {{c.depto}}
+            </td>
+            <td>
+                {{c.city}}
+            </td>
+            <td>
+                {{c.encargado}}
+            </td>
+            <td>
+                {{c.contact}}
+            </td>
+            <td>
+                <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+            </td>
+            <td>
+                <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                <ng-template #deleteConfirmation>
+                <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                    <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                    <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                </div>
+            </ng-template>
+            </td>            
+        </tr>
+    <tbody>
+
+    </tbody>
+</table>
+
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+</div>
+
+<div *ngIf="condicion == 'Manizales'" class="">
+      
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Código
+                </th>
+                <th>
+                    Tipo
+                </th>
+                <th>
+                    Depto
+                </th>
+                <th>
+                    Ciudad
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Tipo
+                </th>
+                <th>
+                    Valor ($)
+                </th>
+                <th>
+                    Direccion
+                </th>
+                <!-- <th>
+                    Descripción
+                </th> -->
+                <th>
+                    Asesor
+                </th>
+                <th>
+                    Contacto
+                </th>
+                <th>
+                   
+                </th>
+                <th>
+    
+                </th>
+            </tr>
+        </thead>
+            <tr *ngFor="let c of cList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+                <td>
+                    {{c.code}}
+                </td>
+                <td>
+                    {{c.tipo}}
+                </td>
+                <td>
+                    {{c.depto}}
+                </td>
+                <td>
+                    {{c.city}}
+                </td>
+                <td>
+                    {{c.name}}
+                </td>
+                <td>
+                    {{c.category}}
+                </td>
+                <td>
+                    {{c.price}}
+                </td>
+                <!-- <td>
+                    {{c.description}}
+                </td> -->
+                <td>
+                    {{c.address}}
+                </td>
+                <td>
+                    {{c.encargado}}
+                </td>
+                <td>
+                    {{c.contact}}
+                </td>
+                <td>
+                    <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+                </td>
+                <td>
+                    <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                    <ng-template #deleteConfirmation>
+                    <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                        <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                        <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                    </div>
+                </ng-template>
+                </td>            
+            </tr>
+        <tbody>
+    
+        </tbody>
+    </table>
+    
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    </div>
+
+    <div *ngIf="condicion == 'Medellin'" class="">
+      
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Código
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Depto
+                    </th>
+                    <th>
+                        Ciudad
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Valor ($)
+                    </th>
+                    <th>
+                        Direccion
+                    </th>
+                    <!-- <th>
+                        Descripción
+                    </th> -->
+                    <th>
+                        Asesor
+                    </th>
+                    <th>
+                        Contacto
+                    </th>
+                    <th>
+                       
+                    </th>
+                    <th>
+        
+                    </th>
+                </tr>
+            </thead>
+                <tr *ngFor="let c of cList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+                    <td>
+                        {{c.code}}
+                    </td>
+                    <td>
+                        {{c.tipo}}
+                    </td>
+                    <td>
+                        {{c.depto}}
+                    </td>
+                    <td>
+                        {{c.city}}
+                    </td>
+                    <td>
+                        {{c.name}}
+                    </td>
+                    <td>
+                        {{c.category}}
+                    </td>
+                    <td>
+                        {{c.price}}
+                    </td>
+                    <!-- <td>
+                        {{c.description}}
+                    </td> -->
+                    <td>
+                        {{c.address}}
+                    </td>
+                    <td>
+                        {{c.encargado}}
+                    </td>
+                    <td>
+                        {{c.contact}}
+                    </td>
+                    <td>
+                        <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+                    </td>
+                    <td>
+                        <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                        <ng-template #deleteConfirmation>
+                        <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                            <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                            <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                        </div>
+                    </ng-template>
+                    </td>            
+                </tr>
+            <tbody>
+        
+            </tbody>
+        </table>
+        
+        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+        </div>
+    
+        <div *ngIf="condicion == 'Villamaria'" class="">
+      
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Código
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Depto
+                        </th>
+                        <th>
+                            Ciudad
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Valor ($)
+                        </th>
+                        <th>
+                            Direccion
+                        </th>
+                        <!-- <th>
+                            Descripción
+                        </th> -->
+                        <th>
+                            Asesor
+                        </th>
+                        <th>
+                            Contacto
+                        </th>
+                        <th>
+                           
+                        </th>
+                        <th>
+            
+                        </th>
+                    </tr>
+                </thead>
+                    <tr *ngFor="let c of cList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+                        <td>
+                            {{c.code}}
+                        </td>
+                        <td>
+                            {{c.tipo}}
+                        </td>
+                        <td>
+                            {{c.depto}}
+                        </td>
+                        <td>
+                            {{c.city}}
+                        </td>
+                        <td>
+                            {{c.name}}
+                        </td>
+                        <td>
+                            {{c.category}}
+                        </td>
+                        <td>
+                            {{c.price}}
+                        </td>
+                        <!-- <td>
+                            {{c.description}}
+                        </td> -->
+                        <td>
+                            {{c.address}}
+                        </td>
+                        <td>
+                            {{c.encargado}}
+                        </td>
+                        <td>
+                            {{c.contact}}
+                        </td>
+                        <td>
+                            <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+                        </td>
+                        <td>
+                            <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                            <ng-template #deleteConfirmation>
+                            <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                                <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                                <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                            </div>
+                        </ng-template>
+                        </td>            
+                    </tr>
+                <tbody>
+            
+                </tbody>
+            </table>
+            
+            <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+            </div>
+
+            <div *ngIf="condicion == 'Caldas'" class="">
+      
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Código
+                            </th>
+                            <th>
+                                Tipo
+                            </th>
+                            <th>
+                                Depto
+                            </th>
+                            <th>
+                                Ciudad
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Tipo
+                            </th>
+                            <th>
+                                Valor ($)
+                            </th>
+                            <th>
+                                Direccion
+                            </th>
+                            <!-- <th>
+                                Descripción
+                            </th> -->
+                            <th>
+                                Asesor
+                            </th>
+                            <th>
+                                Contacto
+                            </th>
+                            <th>
+                               
+                            </th>
+                            <th>
+                
+                            </th>
+                        </tr>
+                    </thead>
+                        <tr *ngFor="let c of cList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+                            <td>
+                                {{c.code}}
+                            </td>
+                            <td>
+                                {{c.tipo}}
+                            </td>
+                            <td>
+                                {{c.depto}}
+                            </td>
+                            <td>
+                                {{c.city}}
+                            </td>
+                            <td>
+                                {{c.name}}
+                            </td>
+                            <td>
+                                {{c.category}}
+                            </td>
+                            <td>
+                                {{c.price}}
+                            </td>
+                            <!-- <td>
+                                {{c.description}}
+                            </td> -->
+                            <td>
+                                {{c.address}}
+                            </td>
+                            <td>
+                                {{c.encargado}}
+                            </td>
+                            <td>
+                                {{c.contact}}
+                            </td>
+                            <td>
+                                <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+                            </td>
+                            <td>
+                                <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                                <ng-template #deleteConfirmation>
+                                <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                                    <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                                    <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                                </div>
+                            </ng-template>
+                            </td>            
+                        </tr>
+                    <tbody>
+                
+                    </tbody>
+                </table>
+                
+                <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+                </div>
+            
+                <div *ngIf="condicion == 'Antioquia'" class="">
+      
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Código
+                                </th>
+                                <th>
+                                    Tipo
+                                </th>
+                                <th>
+                                    Depto
+                                </th>
+                                <th>
+                                    Ciudad
+                                </th>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th>
+                                    Tipo
+                                </th>
+                                <th>
+                                    Valor ($)
+                                </th>
+                                <th>
+                                    Direccion
+                                </th>
+                                <!-- <th>
+                                    Descripción
+                                </th> -->
+                                <th>
+                                    Asesor
+                                </th>
+                                <th>
+                                    Contacto
+                                </th>
+                                <th>
+                                   
+                                </th>
+                                <th>
+                    
+                                </th>
+                            </tr>
+                        </thead>
+                            <tr *ngFor="let c of cList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+                                <td>
+                                    {{c.code}}
+                                </td>
+                                <td>
+                                    {{c.tipo}}
+                                </td>
+                                <td>
+                                    {{c.depto}}
+                                </td>
+                                <td>
+                                    {{c.city}}
+                                </td>
+                                <td>
+                                    {{c.name}}
+                                </td>
+                                <td>
+                                    {{c.category}}
+                                </td>
+                                <td>
+                                    {{c.price}}
+                                </td>
+                                <!-- <td>
+                                    {{c.description}}
+                                </td> -->
+                                <td>
+                                    {{c.address}}
+                                </td>
+                                <td>
+                                    {{c.encargado}}
+                                </td>
+                                <td>
+                                    {{c.contact}}
+                                </td>
+                                <td>
+                                    <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+                                </td>
+                                <td>
+                                    <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                                    <ng-template #deleteConfirmation>
+                                    <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                                        <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                                        <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                                    </div>
+                                </ng-template>
+                                </td>            
+                            </tr>
+                        <tbody>
+                    
+                        </tbody>
+                    </table>
+                    
+                    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+                    </div>
+                
+                    <div *ngIf="condicion == 'Duque'" class="">
+      
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Código
+                                    </th>
+                                    <th>
+                                        Tipo
+                                    </th>
+                                    <th>
+                                        Depto
+                                    </th>
+                                    <th>
+                                        Ciudad
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Tipo
+                                    </th>
+                                    <th>
+                                        Valor ($)
+                                    </th>
+                                    <th>
+                                        Direccion
+                                    </th>
+                                    <!-- <th>
+                                        Descripción
+                                    </th> -->
+                                    <th>
+                                        Asesor
+                                    </th>
+                                    <th>
+                                        Contacto
+                                    </th>
+                                    <th>
+                                       
+                                    </th>
+                                    <th>
+                        
+                                    </th>
+                                </tr>
+                            </thead>
+                                <tr *ngFor="let c of cList | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }">
+                                    <td>
+                                        {{c.code}}
+                                    </td>
+                                    <td>
+                                        {{c.tipo}}
+                                    </td>
+                                    <td>
+                                        {{c.depto}}
+                                    </td>
+                                    <td>
+                                        {{c.city}}
+                                    </td>
+                                    <td>
+                                        {{c.name}}
+                                    </td>
+                                    <td>
+                                        {{c.category}}
+                                    </td>
+                                    <td>
+                                        {{c.price}}
+                                    </td>
+                                    <!-- <td>
+                                        {{c.description}}
+                                    </td> -->
+                                    <td>
+                                        {{c.address}}
+                                    </td>
+                                    <td>
+                                        {{c.encargado}}
+                                    </td>
+                                    <td>
+                                        {{c.contact}}
+                                    </td>
+                                    <td>
+                                        <a class="waves-effect waves-light btn blue" href="/admin/product/editor/{{c.id}}"><i class="material-icons right">edit</i>Editar</a>
+                                    </td>
+                                    <td>
+                                        <a *ngIf="!showConfirmationsButtons; else deleteConfirmation" (click)="ChangeConfirmationButtons(c.id)" class="waves-effect waves-light btn red"><i class="material-icons right">delete</i>Eliminar</a>
+                                        <ng-template #deleteConfirmation>
+                                        <div *ngIf="idToShowButtons == c.id"> <!-- Sólo mostrará las opciones para el seleccionado -->
+                                            <a class="waves-effect waves-light btn green" (click)="deleteProduct(c.id)"><i class="material-icons right">done</i>Confirmar</a>&nbsp;&nbsp;
+                                            <a class="waves-effect waves-light btn red" (click)="ChangeConfirmationButtons('')"><i class="material-icons right">cancel</i>Cancelar</a>
+                                        </div>
+                                    </ng-template>
+                                    </td>            
+                                </tr>
+                            <tbody>
+                        
+                            </tbody>
+                        </table>
+                        
+                        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+                        </div>
+                    

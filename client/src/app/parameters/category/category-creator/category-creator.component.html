@@ -1,0 +1,77 @@
+<br>
+<br>
+<br>
+<form [formGroup]="categoryFormGroup" (ngSubmit)="saveNewCategory()">
+  <div class="row">
+    <div class= "row">
+        <div class="input-field col s3">
+            <i class="material-icons prefix">account_circle</i>
+                <input formControlName="code" id="code" type="text" class="validate">
+                  <label for="code">Code</label>
+                  <div class="errorContainer" *ngIf="(code.touched || code.dirty) && code.invalid">
+                    <div *ngIf="code.errors.required" >
+                      ¡Este campo es requerido!
+                    </div>
+                    <div *ngIf="code.errors.minlength">
+                      Es de minimo 4 caracteres de longitd
+                    </div>
+                    <div *ngIf="code.errors.maxlength">
+                      Es de máximo 5 caracteres de longitd
+                    </div>
+                  </div>
+          </div>
+          <div class="input-field col s5">
+            <i class="material-icons prefix">account_circle</i>
+          <input formControlName="name" id="name" type="text" class="validate">
+          <label for="name">Name</label>
+          <div class="errorContainer" *ngIf="(name.touched || name.dirty) && name.invalid">
+            <div *ngIf="name.errors.required" >
+              ¡Este campo es requerido!
+            </div>
+            <div *ngIf="name.errors.minlength">
+              Es de minimo 4 caracteres de longitd
+            </div>
+            <div *ngIf="name.errors.maxlength">
+              Es de máximo 20 caracteres de longitd
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+          <input formControlName="trequest" id="trequest" type="text" class="validate">
+          <label for="trequest">Tipo de requerimiento</label>
+          <div class="errorContainer" *ngIf="(trequest.touched || trequest.dirty) && trequest.invalid">
+            <div *ngIf="trequest.errors.required" >
+              ¡Este campo es requerido!
+            </div>
+            <div *ngIf="trequest.errors.minlength">
+              Es de minimo 6 caracteres de longitd
+            </div>
+            <div *ngIf="trequest.errors.maxlength">
+              Es de máximo 8 caracteres de longitd
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <button class="btn green" type="submit">
+              Save
+              <i >add</i>
+            </button>
+        </div>
+    </div>
+  </div>
+  </form>
+ <!-- Modal Message -->
+<div id="saveCMessageModal" class="modal">
+  <div class="modal-content">
+    <h4>Categoría Eliminada</h4>
+    <strong id="strSaveCMessage"></strong>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>

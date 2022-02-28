@@ -1,0 +1,102 @@
+<!--    <br>
+   <br>
+   <div id="login-page" class="row">
+        <div class="col s12 z-depth-6 card-panel">
+          <form [formGroup]="fgValidation" (ngSubmit) = "loginEvent()"class="login-form">
+            <div class="row">
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mail_outline</i>
+                <input class="validate" id="username" formControlName="username" type="email">
+                <label for="username" data-error="wrong" data-success="right">Username</label>
+                <div class ="warning-validation" *ngIf="fgv.username.errors && (fgv.username.dirty || fgv.username.touched)">
+                  <strong *ngIf="fgv.username.errors.required">
+                    <br />El usuario es requerido<br />
+                  </strong>
+                  <strong *ngIf="fgv.username.errors.minLength">
+                    <br />El usuario es de minímo 10 caracteres<br /> 
+                  </strong>
+                  <strong *ngIf="fgv.username.errors.maxLength">
+                    <br />El usuario es de máximo 30 caracteres<br />
+                  </strong>
+                  <strong *ngIf="fgv.username.errors.email">
+                    <br />El usuario debe ser un correo válido
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock_outline</i>
+                <input id="password" formControlName="password" type="password">
+                <label for="password">Password</label>
+                <div class ="warning-validation" *ngIf="fgv.password.errors && (fgv.password.dirty || fgv.password.touched)">
+                  <strong *ngIf="fgv.password.errors.required">
+                    <br />La contraseña es requerida <br />
+                  </strong>
+                  <strong *ngIf="fgv.password.errors.minLength">
+                    <br /> La contraseña es de minímo 8 caracteres<br />
+                  </strong>
+                  <strong *ngIf="fgv.password.errors.maxLength">
+                    <br />La contraseña es de máximo 15 caracteres<br />
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <button [disabled]="fgv.username.errors || fgv.password.errors" class="btn waves-effect waves-light blue col s12" type="submit">Login
+                </button>
+              </div>
+            </div>
+              <div class="input-field col s6 m6 l6">
+                  <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
+              </div>          
+    
+          </form>
+        </div>
+      </div> -->
+<br>
+<br>
+<h2 class="center">Inicio de sesión</h2>
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+      <form class="login-form">
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mail_outline</i>
+            <input [(ngModel)]="email" class='validate' name="username" id="email" type="email" required>
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input [(ngModel)]="password" class='validate' name="userpass" id="password" type="password" required>
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">          
+        </div>
+        <div class="row center">
+          <div class="input-field col s12">
+            <button style="margin-left:65px;" (click)="onLoginBtnClick()" type='submit' name='btn_login'
+            class='col s6 btn btn-small blue white-text waves-effect z-depth-1 y-depth-1'>Login</button>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a >Forgot password?</a></p>
+          </div>          
+        </div> -->
+
+      </form>
+    </div>
+  </div>
+
+
+    
+    

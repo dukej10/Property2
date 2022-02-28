@@ -1,0 +1,128 @@
+<br>
+<div><h4 align="center">Edición de cliente</h4></div>
+<table>
+    <tr>
+        <td>
+            <strong>Nombre</strong>
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="client.name" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Documento</strong>
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="client.doc" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Edad</strong>
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="client.age" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Email</strong>
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="client.email" > 
+        </td>
+    </tr>
+    <br>
+    <button class="btn waves-effect waves-light" type="button" (click)="updateClient()" name="action">Actualizar
+        <i class="material-icons right">edit</i>
+      </button>
+</table>
+
+    <br>
+<fieldset>
+    <legend>
+        Reporte
+    </legend>
+    <table>
+        <tr>
+            <td>
+                <strong>Nombre</strong>
+            </td>
+            <td>
+                <label>{{client.name}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Documento</strong>
+            </td>
+            <td>
+                <label>{{client.doc}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Edad</strong>
+            </td>
+            <td>
+                <label>{{client.age}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Email</strong>
+            </td>
+            <td>
+                <label>{{client.email}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Teléfono</strong>
+            </td>
+            <td>
+                <label>{{client.phone}}</label>
+            </td>
+        </tr>
+    </table>
+    <br>
+</fieldset><br>
+
+<!-- Modal Structure -->
+<div id="updatedMessageModal" class="modal">
+    <div class="modal-content">
+      <h4>Mensaje</h4>
+      <strong id="strUpdateMessage"></strong>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div><!-- 
+  <table class="highlight responsive-table">
+    <thead>
+      <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Editar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let c of clientListData"> <!-- copiando json -->
+        <!-- <td>{{c._id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.age}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.phone}}</td> -->
+        <!-- <td>{{c.balance | currency}}</td> -->
+       <!--  <td>
+          <a href="/client/editor/{{c.index}}" class="waves-effect waves-light btn"><i class="material-icons right">edit</i>Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+ 
