@@ -1,7 +1,11 @@
+body {
+  overflow-x: hidden; /*ocultar scroll-bar horizontal */
+}
+
 legend {
-    display: block;
-    padding-left: 2px;
-    padding-right: 2px;
-    border: none;
-    font-size: 30px;
-  }
+  display: block;
+  padding-left: 2px;
+  padding-right: 2px;
+  border: none;
+  font-size: 30px;
+}
