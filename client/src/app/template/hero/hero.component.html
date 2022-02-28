@@ -1,16 +1,21 @@
 <section class="hero">
-    <div class="hero-inner">
-        <br>
-        <br>
-        <br>
-        <br><br>
-        <br>
-        <br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <a *ngIf="!userLogged" routerLink="/security/user/register" class="btn blue">Registrarse Ahora</a> &nbsp;&nbsp;
-        <a routerLink="/product/home" class="btn blue">Ver Inmuebles</a>
-    </div>
+  <div class="hero-inner">
+    <br />
+    <br />
+    <br />
+    <br /><br />
+    <br />
+    <br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <a *ngIf="!userLogged" routerLink="/security/user/register" class="btn blue"
+      >Registrarse Ahora</a
+    >
+    &nbsp;&nbsp;
+    <a *ngIf="userLogged" routerLink="/product/home" class="btn blue"
+      >Ver Inmuebles</a
+    >
+  </div>
 </section>
