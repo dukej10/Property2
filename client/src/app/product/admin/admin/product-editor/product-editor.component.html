@@ -1,114 +1,193 @@
+<br />
+<br />
+<br />
 
-<br>
-<br>
-<br>
-
-
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
 <h2 class="center">Actualización de datos del inmueble</h2>
 <div class="row">
-<div class= "row">
+  <div class="row">
     <div class="input-field col s3">
-        <i class="material-icons prefix">account_circle</i>
-              <input [(ngModel)]="product.code" id="code" type="text" class="validate">
-              <label for="code" class="active">Code</label>
-      </div>
+      <i class="material-icons prefix">account_circle</i>
+      <input
+        [(ngModel)]="product.code"
+        id="code"
+        type="text"
+        class="validate"
+      />
+      <label for="code" class="active">Code</label>
+    </div>
+    <div class="input-field col s5">
+      <i class="material-icons prefix">account_circle</i>
+      <input
+        [(ngModel)]="product.name"
+        id="name"
+        type="text"
+        class="validate"
+      />
+      <label for="name" class="active">Name</label>
+    </div>
+    <div class="row">
       <div class="input-field col s5">
         <i class="material-icons prefix">account_circle</i>
-      <input [(ngModel)]="product.name" id="name" type="text" class="validate">
-      <label for="name" class="active">Name</label>
-</div>
-<div class="row">
-    <div class="input-field col s5">
+        <input
+          [(ngModel)]="product.description"
+          id="des"
+          type="text"
+          class="validate"
+        />
+        <label for="des" class="active">Tipo de requerimiento</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
         <i class="material-icons prefix">account_circle</i>
-      <input [(ngModel)]="product.description" id="des" type="text" class="validate">
-      <label for="des" class="active">Tipo de requerimiento</label>
+        <input
+          [(ngModel)]="product.rooms"
+          id="rooms"
+          type="text"
+          class="validate"
+        />
+        <label for="rooms">Rooms</label>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.bathrooms"
+          id="bathrooms"
+          type="text"
+          class="validate"
+        />
+        <label for="rooms">Baños</label>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.area"
+          id="area"
+          type="text"
+          class="validate"
+        />
+        <label for="area">Área</label>
+      </div>
     </div>
-</div>
-<div class= "row">
-  <div class="input-field col s4">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.rooms" id="rooms" type="text" class="validate">
-  <label for="rooms">Rooms</label>
+    <div class="row">
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.category"
+          id="category"
+          type="text"
+          class="validate"
+        />
+        <label for="category">Categoria</label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.price"
+          id="price"
+          type="text"
+          class="validate"
+        />
+        <label for="price">Precio</label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.image"
+          id="image"
+          type="text"
+          class="validate"
+        />
+        <label for="image">Imagen </label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.image1"
+          id="image1"
+          type="text"
+          class="validate"
+        />
+        <label for="image1">Image 2</label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.address"
+          id="address"
+          type="text"
+          class="validate"
+        />
+        <label for="address">Dirección</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.tipo"
+          id="tipo"
+          type="text"
+          class="validate"
+        />
+        <label for="tipo">Tipo</label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.depto"
+          id="depto"
+          type="text"
+          class="validate"
+        />
+        <label for="depto">Depto</label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.city"
+          id="city"
+          type="text"
+          class="validate"
+        />
+        <label for="city">Ciudad</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.encargado"
+          id="encargado"
+          type="text"
+          class="validate"
+        />
+        <label for="encargado">Asesor</label>
+      </div>
+      <div class="input-field col s3">
+        <i class="material-icons prefix">account_circle</i>
+        <input
+          [(ngModel)]="product.contact"
+          id="contact"
+          type="text"
+          class="validate"
+        />
+        <label for="contact">Contacto</label>
+      </div>
+    </div>
   </div>
-  <div class="input-field col s4">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.bathrooms" id="bathrooms" type="text" class="validate">
-  <label for="rooms">Baños</label>
-  </div>
-  <div class="input-field col s4">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.area" id="area" type="text" class="validate">
-  <label for="area">Área</label>
-  </div>
-</div>
-<div class= "row">
-<div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-          <input [(ngModel)]="product.category" id="category" type="text" class="validate">
-          <label for="category">Category</label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.price" id="price" type="text" class="validate">
-  <label for="price">Precio</label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.image" id="image" type="text" class="validate">
-  <label for="image">Imagen </label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.image1" id="image1" type="text" class="validate">
-  <label for="image1">Image 2</label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.address" id="address" type="text" class="validate">
-  <label for="address">Dirección</label>
-  </div>
-</div>
-<div class="row">
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.tipo" id="tipo" type="text" class="validate">
-  <label for="tipo">Dirección</label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.depto" id="depto" type="text" class="validate">
-  <label for="depto">Depto</label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.city" id="city" type="text" class="validate">
-  <label for="city">Ciudad</label>
-  </div>
-</div>
-<div class="row">
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.encargado" id="encargado" type="text" class="validate">
-  <label for="encargado">Asesor</label>
-  </div>
-  <div class="input-field col s3">
-    <i class="material-icons prefix">account_circle</i>
-  <input [(ngModel)]="product.contact" id="contact" type="text" class="validate">
-  <label for="contact">Contacto</label>
-  </div>
-</div>
-</div>
 
-<div class="row">
+  <div class="row">
     <div class="col s12">
-        <a class="waves-effect waves-light btn" (click)="updateProduct()"><i class="material-icons right">edit</i>Actualizar</a>
+      <a class="waves-effect waves-light btn" (click)="updateProduct()"
+        ><i class="material-icons right">edit</i>Actualizar</a
+      >
     </div>
+  </div>
 </div>
-</div>
-
 
 <!-- Modal Message -->
 <div id="editorCMessageModal" class="modal">
@@ -117,18 +196,21 @@
     <strong id="strEditorCMessage"></strong>
   </div>
   <div class="modal-footer">
-    <a href="/admin/product/list" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    <a
+      href="/admin/product/list"
+      class="modal-close waves-effect waves-green btn-flat"
+      >Close</a
+    >
   </div>
 </div>
 
-
 <!-- Modal Message -->
 <div id="editorIMessageModal" class="modal">
-<div class="modal-content">
-  <h4>Inmobiliaria Mchaileh</h4>
-  <strong id="strEditorIMessage"></strong>
-</div>
-<div class="modal-footer">
-  <a  class="modal-close waves-effect waves-green btn-flat">Close</a>
-</div>
+  <div class="modal-content">
+    <h4>Inmobiliaria Mchaileh</h4>
+    <strong id="strEditorIMessage"></strong>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
 </div>
