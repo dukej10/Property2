@@ -77,7 +77,6 @@ export class ProductListComponent implements OnInit {
     for (let prop of this.productList) {
       if (prop.city.toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
-        console.log("oeee");
       }
       if (prop.depto.toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
