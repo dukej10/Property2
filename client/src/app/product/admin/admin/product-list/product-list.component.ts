@@ -72,6 +72,8 @@ export class ProductListComponent implements OnInit {
   }
 
   condition(condicion) {
+    // MANTENIMIENTO CORRECTIVO
+    // MANTENIMIENTO PERFECTIVO
     this.cList = [];
 
     for (let prop of this.productList) {
