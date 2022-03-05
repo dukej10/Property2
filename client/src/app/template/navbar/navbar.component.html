@@ -1,36 +1,44 @@
 <nav class="blue">
-    <div class="nav-wrapper">
-      <a routerLink="/home" class="brand-logo">Inmobiliaria Mchaileh</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li *ngIf="!userLogged"><a routerLink="/security/user/login">Login</a></li> <!-- Muestra si no está loguead0 -->
-        <li *ngIf="userLogged"><a routerLink="/security/user/logout">Logout</a></li>
-        <li *ngIf="userLogged"><a routerLink="/solicitud/list">Solicitudes</a></li>
-        <!-- <li *ngIf="userLogged"><a routerLink="/client/list">Client</a></li> -->
-        <!-- <li *ngIf="userLogged"><a routerLink="/admin/category/list">A Category</a></li> -->
-        <li *ngIf="userLogged"><a routerLink="/admin/product/list">Nuestros Inmuebles</a></li>
+  <div class="nav-wrapper">
+    <a routerLink="/home" class="brand-logo">Inmobiliaria Mchaileh</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+      ><i class="material-icons">menu</i></a
+    >
+    <ul class="right hide-on-med-and-down">
+      <li *ngIf="!userLogged">
+        <a routerLink="/security/user/login">Login</a>
+      </li>
+      <!-- Muestra si no está loguead0 -->
+      <li *ngIf="userLogged">
+        <a routerLink="/security/user/logout">Logout</a>
+      </li>
+      <li *ngIf="userLogged">
+        <a routerLink="/solicitud/list">Solicitudes</a>
+      </li>
+      <!-- <li *ngIf="userLogged"><a routerLink="/client/list">Client</a></li> -->
+      <!-- <li *ngIf="userLogged"><a routerLink="/admin/category/list">A Category</a></li> -->
+      <li *ngIf="userLogged">
+        <a routerLink="/admin/product/list">Nuestros Inmuebles</a>
+      </li>
+      <li *ngIf="userLogged"><a routerLink="/change/list">Registros</a></li>
+    </ul>
+  </div>
+  <div *ngIf="userLogged">
+    <!-- Muestra el nombre de quien este logueado -->
+    <strong class="sesion">En sesión: {{ completeName }}</strong>
+  </div>
+</nav>
 
-      </ul>
-    </div>
-    <div *ngIf="userLogged">      <!-- Muestra el nombre de quien este logueado -->
-      <strong class="sesion" >En sesión: {{completeName}}</strong>
-    </div>
-  </nav>
-  
-  <ul class="sidenav" id="mobile-demo">
-    <li *ngIf="
-!userLogged"
-><a routerLink="/security/user/login">Login</a></li>
-    <li *ngIf="
-userLogged"
-><a routerLink="/security/user/logout">Logout</a></li>
-   <!--  <li *ngIf="
+<ul class="sidenav" id="mobile-demo">
+  <li *ngIf="!userLogged"><a routerLink="/security/user/login">Login</a></li>
+  <li *ngIf="userLogged"><a routerLink="/security/user/logout">Logout</a></li>
+  <!--  <li *ngIf="
 userLogged"
 ><a routerLink="/client/list">Client</a></li> -->
-   <!--  <li *ngIf="
+  <!--  <li *ngIf="
 userLogged"
 ><a routerLink="/admin/category/list">A Category</a></li> -->
-    <li *ngIf="
-userLogged"
-><a routerLink="/admin/product/list">Nuestros Inmuebles</a></li>
+  <li *ngIf="userLogged">
+    <a routerLink="/admin/product/list">Nuestros Inmuebles</a>
+  </li>
 </ul>
