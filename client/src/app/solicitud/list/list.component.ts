@@ -84,56 +84,65 @@ export class ListComponent implements OnInit {
   /* Filtro de búsqueda */
 
   condition(condicion) {
+    this.cList = [];
+    for (let prop of this.productList) {
+      if (prop.estado.toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.asesor.toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+    }
+
     //  HACER MANTENIMIENTO CORRECTIVO
 
-    this.cList = [];
-    if (condicion == "enviado") {
-      for (let prop of this.productList) {
-        if (prop.estado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
+    // if (condicion == "enviado") {
+    //   for (let prop of this.productList) {
+    //     if (prop.estado == condicion) {
+    //       this.cList.push(prop);
+    //     }
+    //   }
+    // }
 
-    if (condicion == "en estudio") {
-      for (let prop of this.productList) {
-        if (prop.estado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
+    // if (condicion == "en estudio") {
+    //   for (let prop of this.productList) {
+    //     if (prop.estado == condicion) {
+    //       this.cList.push(prop);
+    //     }
+    //   }
+    // }
 
-    if (condicion == "aceptado") {
-      for (let prop of this.productList) {
-        if (prop.estado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
+    // if (condicion == "aceptado") {
+    //   for (let prop of this.productList) {
+    //     if (prop.estado == condicion) {
+    //       this.cList.push(prop);
+    //     }
+    //   }
+    // }
 
-    if (condicion == "rechazado") {
-      for (let prop of this.productList) {
-        if (prop.estado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
+    // if (condicion == "rechazado") {
+    //   for (let prop of this.productList) {
+    //     if (prop.estado == condicion) {
+    //       this.cList.push(prop);
+    //     }
+    //   }
+    // }
 
-    if (condicion == "Duque") {
-      for (let prop of this.productList) {
-        if (prop.asesor == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
+    // if (condicion == "Duque") {
+    //   for (let prop of this.productList) {
+    //     if (prop.asesor == condicion) {
+    //       this.cList.push(prop);
+    //     }
+    //   }
+    // }
 
-    if (condicion == "Pepito") {
-      for (let prop of this.productList) {
-        if (prop.asesor == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
+    // if (condicion == "Pepito") {
+    //   for (let prop of this.productList) {
+    //     if (prop.asesor == condicion) {
+    //       this.cList.push(prop);
+    //     }
+    //   }
+    // }
   }
 
   ShowInfo(id) {
