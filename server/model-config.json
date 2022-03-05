@@ -62,5 +62,9 @@
   "solicitud": {
     "dataSource": "db",
     "public": true
+  },
+  "changesLog": {
+    "dataSource": "db",
+    "public": true
   }
 }
