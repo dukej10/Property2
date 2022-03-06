@@ -5,9 +5,13 @@ import { ProductModule } from "src/app/product/product.module";
 import { NgxSpinner } from "ngx-spinner/lib/ngx-spinner.enum";
 import { NgxSpinnerService } from "ngx-spinner";
 import { PropertyModel } from "src/app/models/product.model";
+import { ChangeModel } from "src/app/models/change.model";
+import { UserService } from "src/app/services/user.service";
+import { ChangeService } from "src/app/services/change.service";
 
 declare const deleteMessageModalP: any; /* Mensaje Modal elim */
 
+declare const createdMessageProd: any;
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
@@ -17,7 +21,9 @@ export class ProductListComponent implements OnInit {
   constructor(
     private pService: ProductService,
     private route: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private chanService: ChangeService,
+    private user: UserService
   ) {}
 
   productList: PropertyModel[] = [];
@@ -33,6 +39,17 @@ export class ProductListComponent implements OnInit {
     this.getAllProducts();
   }
 
+  change: ChangeModel = {
+    id: null,
+    code: null,
+    name: null,
+    category: null,
+    image: null,
+    type: null,
+    manager: null,
+    date: null,
+  };
+
   getAllProducts(): void {
     this.pService.getAllProducts().subscribe((items) => {
       this.productList = items;
@@ -44,6 +61,7 @@ export class ProductListComponent implements OnInit {
     this.idToShowButtons = id;
     this.showConfirmationsButtons = !this.showConfirmationsButtons;
   }
+
   /* para ngxPagination */
   cp: number = 1;
   total: number = 0;
@@ -52,9 +70,40 @@ export class ProductListComponent implements OnInit {
 
   /* Elimina la categoria al dar click en confirmación */
   deleteProduct(ProductId: string): void {
+    this.searchProduct(ProductId);
     this.pService.deleteProduct(ProductId).subscribe((item) => {
       alert("Se eliminó");
-      window.location.reload();
+      //window.location.reload();
+    });
+  }
+
+  searchProduct(productid: string): void {
+    this.pService.getProductById(productid).subscribe((item) => {
+      console.log("XD");
+      this.addChange(item);
+    });
+  }
+
+  addChange(product: PropertyModel) {
+    console.log("FUNCIONÓ");
+    this.change.code = product.code;
+    this.change.name = product.name;
+    this.change.category = product.category;
+    this.change.image = product.image;
+    this.change.manager = this.user.getUserInformation().realm;
+    this.change.type = "Eliminó";
+    let today = new Date();
+    let day = `${today.getDate() + 1 < 10 ? "0" : ""}${today.getDate()}`;
+    let month = `${today.getMonth() + 1 < 10 ? "0" : ""}${
+      today.getMonth() + 1
+    }`;
+    let year = today.getFullYear();
+    let date = `${day}/${month}/${year}`;
+    this.change.date = date.toString();
+    console.log(this.user.getToken());
+    this.chanService.saveNewChange(this.change).subscribe((item) => {
+      createdMessageProd("Se creo el producto satisfactoriamente");
+      console.log(item);
     });
   }
 

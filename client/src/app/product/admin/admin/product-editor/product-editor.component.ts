@@ -77,7 +77,7 @@ export class ProductEditorComponent implements OnInit {
   }
 
   addChange() {
-    console.log("FUNCIONÓ");
+    //console.log("FUNCIONÓ");
     this.change.code = this.product.code;
     this.change.name = this.product.name;
     this.change.category = this.product.category;
