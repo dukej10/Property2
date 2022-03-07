@@ -17,11 +17,6 @@ const routes: Routes = [
     redirectTo: "change/list",
     canActivate: [UrlInjectionGuard],
   },
-  {
-    path: "change/editor",
-    component: ChangeEditorComponent,
-    canActivate: [UrlInjectionGuard],
-  },
 ];
 
 @NgModule({
