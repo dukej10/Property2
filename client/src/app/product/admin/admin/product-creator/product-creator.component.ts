@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UserService } from "src/app/services/user.service";
 import { ChangeModel } from "src/app/models/change.model";
+import { ChangeService } from "../../../../services/change.service";
 
 declare const createdMessageProd: any;
 declare const cMessageProd: any;
@@ -18,7 +19,8 @@ export class ProductCreatorComponent implements OnInit {
   constructor(
     private pService: ProductService,
     private route: Router,
-    private uService: UserService
+    private uService: UserService,
+    private chanService: ChangeService
   ) {
     this.productFormGroup = this.formGroupCreator();
   }
@@ -185,19 +187,6 @@ export class ProductCreatorComponent implements OnInit {
     return property;
   }
 
-  saveNewProduct(): void {
-    console.log(this.asesor);
-    if (this.productFormGroup.valid) {
-      this.pService
-        .saveNewProduct(this.buildCategoryData())
-        .subscribe((item) => {
-          createdMessageProd("Se creo el producto satisfactoriamente");
-        });
-    } else {
-      cMessageProd("Datos incorrectos");
-    }
-  }
-
   change: ChangeModel = {
     id: null,
     code: null,
@@ -208,6 +197,43 @@ export class ProductCreatorComponent implements OnInit {
     manager: null,
     date: null,
   };
+
+  saveNewProduct(): void {
+    console.log(this.asesor);
+    if (this.productFormGroup.valid) {
+      this.pService
+        .saveNewProduct(this.buildCategoryData())
+        .subscribe((item) => {
+          createdMessageProd("Se creo el producto satisfactoriamente");
+        });
+      this.addChange();
+      this.route.navigate(["admin/product/list"]);
+    } else {
+      cMessageProd("Datos incorrectos");
+    }
+  }
+
+  addChange() {
+    console.log("FUNCIONÓ");
+    this.change.code = this.code.value;
+    this.change.name = this.name.value;
+    this.change.category = this.category.value;
+    this.change.image = this.image.value;
+    this.change.manager = this.uService.getUserInformation().realm;
+    this.change.type = "Agregó";
+    let today = new Date();
+    let day = `${today.getDate() + 1 < 10 ? "0" : ""}${today.getDate()}`;
+    let month = `${today.getMonth() + 1 < 10 ? "0" : ""}${
+      today.getMonth() + 1
+    }`;
+    let year = today.getFullYear();
+    let date = `${day}/${month}/${year}`;
+    this.change.date = date.toString();
+    this.chanService.saveNewChange(this.change).subscribe((item) => {
+      createdMessageProd("Se creo el producto satisfactoriamente");
+      console.log(item);
+    });
+  }
 
   /* saveNewProduct(): void{
     this.pService.saveNewProduct(this.product).subscribe(item =>{
