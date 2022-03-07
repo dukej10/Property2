@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
-  declarations: [ChangeListComponent, ChangeEditorComponent],
+  declarations: [ChangeListComponent],
   imports: [
     CommonModule,
     CommonModule,
@@ -15,6 +15,6 @@ import { NgxPaginationModule } from "ngx-pagination";
     RouterModule,
     NgxPaginationModule,
   ],
-  exports: [ChangeListComponent, ChangeEditorComponent],
+  exports: [ChangeListComponent],
 })
 export class ChangeModule {}

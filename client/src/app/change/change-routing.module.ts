@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ChangeListComponent } from "./change-list/change-list.component";
 import { ChangeModule } from "./change.module";
-import { ChangeEditorComponent } from "./change-editor/change-editor.component";
 import { UrlInjectionGuard } from "../guards/url-injection.guard";
 
 const routes: Routes = [
