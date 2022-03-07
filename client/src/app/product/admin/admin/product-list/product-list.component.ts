@@ -73,7 +73,7 @@ export class ProductListComponent implements OnInit {
     this.searchProduct(ProductId);
     this.pService.deleteProduct(ProductId).subscribe((item) => {
       alert("Se eliminó");
-      //window.location.reload();
+      window.location.reload();
     });
   }
 
@@ -133,6 +133,9 @@ export class ProductListComponent implements OnInit {
         this.cList.push(prop);
       }
       if (prop.encargado.toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.code.toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
       }
     }
