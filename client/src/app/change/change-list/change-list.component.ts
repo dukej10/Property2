@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { ChangeService } from "../../services/change.service";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ChangeModel } from "../../models/change.model";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-change-list",
@@ -32,6 +33,7 @@ export class ChangeListComponent implements OnInit {
   getAllChanges(): void {
     this.cService.getAllChanges().subscribe((items) => {
       this.changeList = items;
+      console.log("FUNCIONA");
     });
   }
 
@@ -69,10 +71,27 @@ export class ChangeListComponent implements OnInit {
 
   condition(condicion) {
     this.cList = [];
-
     for (let prop of this.changeList) {
-      console.log("ELEMENTO");
-      this.cList.push(prop);
+      console.log("XD");
+      if (prop.code.toString().toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.name.toString().toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.category.toString().toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.type.toString().toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.manager.toString().toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      if (prop.date.toString().toUpperCase() == condicion.toUpperCase()) {
+        this.cList.push(prop);
+      }
+      // this.cList.push(prop);
     }
   }
 }

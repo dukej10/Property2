@@ -98,3 +98,84 @@
     (pageChange)="onPageChange($event)"
   ></pagination-controls>
 </div>
+
+<div *ngIf="condicion != null" class="">
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Foto</th>
+        <th>Tipo</th>
+        <th>Encargado</th>
+        <th>Fecha</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tr
+      *ngFor="
+        let c of cList
+          | paginate: { itemsPerPage: 3, currentPage: cp, totalItems: total }
+      "
+    >
+      <td>
+        {{ c.code }}
+      </td>
+      <td>
+        {{ c.name }}
+      </td>
+      <td>
+        {{ c.category }}
+      </td>
+      <td>
+        <img src="{{ c.image }}" class="image" />
+      </td>
+      <td>
+        {{ c.type }}
+      </td>
+      <td>
+        {{ c.manager }}
+      </td>
+      <td>
+        {{ c.date }}
+      </td>
+      <!-- <td>
+        <a
+          class="waves-effect waves-light btn blue"
+          href="/change/editor/{{ c.id }}"
+          ><i class="material-icons right">edit</i>Editar</a
+        >
+      </td> -->
+      <td>
+        <a
+          *ngIf="!showConfirmationsButtons; else deleteConfirmation"
+          (click)="ChangeConfirmationButtons(c.id)"
+          class="waves-effect waves-light btn red"
+          ><i class="material-icons right">delete</i>Eliminar</a
+        >
+        <ng-template #deleteConfirmation>
+          <div *ngIf="idToShowButtons == c.id">
+            <a
+              class="waves-effect waves-light btn green"
+              (click)="deleteChange(c.id)"
+              ><i class="material-icons right">done</i>Confirmar</a
+            >&nbsp;&nbsp;
+            <a
+              class="waves-effect waves-light btn red"
+              (click)="ChangeConfirmationButtons('')"
+              ><i class="material-icons right">cancel</i>Cancelar</a
+            >
+          </div>
+        </ng-template>
+      </td>
+      -->
+    </tr>
+    <tbody></tbody>
+  </table>
+
+  <pagination-controls
+    (pageChange)="onPageChange($event)"
+  ></pagination-controls>
+</div>
