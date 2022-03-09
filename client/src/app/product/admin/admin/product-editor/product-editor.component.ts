@@ -92,9 +92,7 @@ export class ProductEditorComponent implements OnInit {
     let year = today.getFullYear();
     let date = `${day}/${month}/${year}`;
     this.change.date = date.toString();
-    console.log(this.user.getToken());
     this.chanService.saveNewChange(this.change).subscribe((item) => {
-      createdMessageProd("Se creo el producto satisfactoriamente");
       console.log(item);
     });
   }
