@@ -89,6 +89,7 @@ export class ProductListComponent implements OnInit {
    * @param product
    */
   addChange(product: PropertyModel) {
+    console.log("LLEGÓ");
     this.newMethod(product);
     this.chanService.saveNewChange(this.change).subscribe((item) => {
       createdMessageProd("Se registró el cambio");
@@ -148,58 +149,5 @@ export class ProductListComponent implements OnInit {
         this.cList.push(prop);
       }
     }
-    /*
-    if (condicion.toUpperCase() == "MEDELLIN") {
-      for (let prop of this.productList) {
-        if (prop.city == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
-
-    if (condicion.toUpperCase() == "VILLAMARIA") {
-      for (let prop of this.productList) {
-        if (prop.city == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
-
-    if (condicion.toUpperCase() == "CALDAS") {
-      for (let prop of this.productList) {
-        if (prop.depto == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
-
-    if (condicion.toUpperCase() == "ANTIOQUIA") {
-      for (let prop of this.productList) {
-        if (prop.depto == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
-
-    if (condicion.toUpperCase() == "DUQUE") {
-      for (let prop of this.productList) {
-        if (prop.encargado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    } else if (condicion.toUpperCase() == "PEPITO") {
-      for (let prop of this.productList) {
-        if (prop.encargado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    } else if (condicion.toUpperCase() == "DUKECITO") {
-      for (let prop of this.productList) {
-        if (prop.encargado == condicion) {
-          this.cList.push(prop);
-        }
-      }
-    }
-    */
   }
 }
