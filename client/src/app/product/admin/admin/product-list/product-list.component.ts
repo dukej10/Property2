@@ -84,8 +84,22 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se encarga de registrar el cambio que se realizó
+   * @param product
+   */
   addChange(product: PropertyModel) {
-    console.log("FUNCIONÓ");
+    this.newMethod(product);
+    this.chanService.saveNewChange(this.change).subscribe((item) => {
+      createdMessageProd("Se registró el cambio");
+    });
+  }
+  /**
+   * Método que se encarga de actualizar la información necesaria
+   * para registrar el cambio
+   * @param product
+   */
+  newMethod(product: PropertyModel) {
     this.change.code = product.code;
     this.change.name = product.name;
     this.change.category = product.category;
@@ -100,11 +114,6 @@ export class ProductListComponent implements OnInit {
     let year = today.getFullYear();
     let date = `${day}/${month}/${year}`;
     this.change.date = date.toString();
-    console.log(this.user.getToken());
-    this.chanService.saveNewChange(this.change).subscribe((item) => {
-      createdMessageProd("Se creo el producto satisfactoriamente");
-      console.log(item);
-    });
   }
 
   /*NgxSpinner*/
