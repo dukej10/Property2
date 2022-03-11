@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CategoryCreatorComponent } from './category-creator.component';
+import { CategoryCreatorComponent } from "./category-creator.component";
 
-describe('CategoryCreatorComponent', () => {
+describe("CategoryCreatorComponent", () => {
   let component: CategoryCreatorComponent;
   let fixture: ComponentFixture<CategoryCreatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CategoryCreatorComponent ]
-    })
-    .compileComponents();
+      declarations: [CategoryCreatorComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('CategoryCreatorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

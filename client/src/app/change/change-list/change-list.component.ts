@@ -16,7 +16,7 @@ export class ChangeListComponent implements OnInit {
     private route: Router,
     private spinner: NgxSpinnerService
   ) {}
-
+  codeProperty: string;
   changeList: ChangeModel[] = [];
   condicion: string = null;
   cList: ChangeModel[] = [];
@@ -33,15 +33,20 @@ export class ChangeListComponent implements OnInit {
   getAllChanges(): void {
     this.cService.getAllChanges().subscribe((items) => {
       this.changeList = items;
-      console.log("FUNCIONA");
+      console.table(this.changeList);
     });
   }
 
   /* Elimina la categoria al dar click en confirmación */
   deleteChange(changeId: string): void {
+    console.log("ID ", changeId);
     this.cService.deleteChange(changeId).subscribe((item) => {
       window.location.reload();
     });
+  }
+
+  getChange(): string {
+    return this.codeProperty;
   }
 
   /* Se usa si se da click en Cancelar para mostrar los botones de confirmar y cancelar */
@@ -71,10 +76,12 @@ export class ChangeListComponent implements OnInit {
 
   condition(condicion) {
     this.cList = [];
+    console.log("LLEGÓ ", condicion);
     for (let prop of this.changeList) {
-      console.log("XD");
       if (prop.code.toString().toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
+        this.codeProperty = prop.code;
+        console.log(typeof condicion);
       }
       if (prop.name.toString().toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
