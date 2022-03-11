@@ -90,7 +90,7 @@ export class ProductListComponent implements OnInit {
    */
   addChange(product: PropertyModel) {
     console.log("LLEGÓ");
-    this.newMethod(product);
+    this.getInfoChange(product);
     this.chanService.saveNewChange(this.change).subscribe((item) => {
       createdMessageProd("Se registró el cambio");
     });
@@ -100,7 +100,7 @@ export class ProductListComponent implements OnInit {
    * para registrar el cambio
    * @param product
    */
-  newMethod(product: PropertyModel) {
+  getInfoChange(product: PropertyModel) {
     this.change.code = product.code;
     this.change.name = product.name;
     this.change.category = product.category;
