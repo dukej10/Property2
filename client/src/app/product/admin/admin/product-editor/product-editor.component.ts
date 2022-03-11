@@ -77,7 +77,13 @@ export class ProductEditorComponent implements OnInit {
   }
 
   addChange() {
-    //HACER EXTRACT METHOD
+    this.getInfoChange();
+    this.chanService.saveNewChange(this.change).subscribe((item) => {
+      console.log(item);
+    });
+  }
+
+  private getInfoChange() {
     this.change.code = this.product.code;
     this.change.name = this.product.name;
     this.change.category = this.product.category;
@@ -92,8 +98,5 @@ export class ProductEditorComponent implements OnInit {
     let year = today.getFullYear();
     let date = `${day}/${month}/${year}`;
     this.change.date = date.toString();
-    this.chanService.saveNewChange(this.change).subscribe((item) => {
-      console.log(item);
-    });
   }
 }
