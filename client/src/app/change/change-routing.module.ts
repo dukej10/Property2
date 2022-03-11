@@ -8,13 +8,13 @@ const routes: Routes = [
   {
     path: "change/list",
     component: ChangeListComponent,
-    canActivate: [UrlInjectionGuard],
+    // canActivate: [UrlInjectionGuard],
   },
   {
     path: "change",
     pathMatch: "full",
     redirectTo: "change/list",
-    canActivate: [UrlInjectionGuard],
+    // canActivate: [UrlInjectionGuard],
   },
 ];
 
