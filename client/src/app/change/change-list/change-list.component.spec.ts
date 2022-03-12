@@ -42,6 +42,16 @@ describe("ChangeListComponent", () => {
     });
   });
 
+  it("should return 202 response code, successful get", function (done) {
+    fetch("http://localhost:3000/api/changesLog?access_token=x", {
+      method: "get",
+    }).then(function (resp) {
+      console.log(resp);
+      expect(resp.status).toEqual(200);
+      done();
+    });
+  });
+
   // it("should create", () => {
   //   expect(component).toBeTruthy();
   // });
