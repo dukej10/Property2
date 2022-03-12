@@ -42,9 +42,10 @@ describe("ChangeListComponent", () => {
     });
 
     //prueba 
-    it("evaluar la funcion change-list.component.condicion",()=>{
+    /*it("evaluar la funcion change-list.component.condicion",()=>{
       expect("   ").toEqual("  ");
-    });
+    });*/
+
   });
 
   // it("should create", () => {
