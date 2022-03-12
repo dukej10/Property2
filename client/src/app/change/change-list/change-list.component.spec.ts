@@ -29,7 +29,7 @@ describe("ChangeListComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should return 202 response code, successful put", function (done) {
+  it("should return 200 response code, successful get", function (done) {
     fetch(
       "http://localhost:3000/api/changesLog?access_token=t8YAoFLv0mjP4JiEzcvnvO71J81o8OempNX2Yt6UV2gGhhngGhVTwjsJtxttRQgR",
       {
