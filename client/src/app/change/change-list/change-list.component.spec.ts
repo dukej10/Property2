@@ -40,6 +40,11 @@ describe("ChangeListComponent", () => {
       expect(response.status).toEqual(200);
       done();
     });
+
+    //prueba 
+    it("evaluar la funcion change-list.component.condicion",()=>{
+      expect("   ").toEqual("  ");
+    });
   });
 
   // it("should create", () => {
