@@ -41,18 +41,6 @@ export class ChangeService {
     );
   }
 
-  updateChange(Change: ChangeModel): Observable<ChangeModel> {
-    return this.http.put<ChangeModel>(
-      `${base_url}changesLog?access_token=${this.token}`,
-      Change,
-      {
-        headers: new HttpHeaders({
-          "content-type": "application/json",
-        }),
-      }
-    );
-  }
-
   deleteChange(changeId: string): Observable<ChangeModel> {
     return this.http.delete<ChangeModel>(
       `${base_url}changesLog/${changeId}?access_token=${this.token}`

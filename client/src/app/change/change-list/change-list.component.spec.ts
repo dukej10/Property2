@@ -36,16 +36,41 @@ describe("ChangeListComponent", () => {
         method: "get",
       }
     ).then(function (response) {
-      console.log(response);
       expect(response.status).toEqual(200);
       done();
     });
+  });
 
+<<<<<<< HEAD
     //prueba 
     /*it("evaluar la funcion change-list.component.condicion",()=>{
       expect("   ").toEqual("  ");
     });*/
 
+=======
+  it("should return 200 response code, succesfull get by id", function (done) {
+    fetch(
+      "http://localhost:3000/api/changesLog/622655bf51e5e931a4a2fe62?access_token=t8YAoFLv0mjP4JiEzcvnvO71J81o8OempNX2Yt6UV2gGhhngGhVTwjsJtxttRQgR",
+      {
+        method: "get",
+      }
+    ).then(function (response) {
+      expect(response.status).toEqual(200);
+      done();
+    });
+  });
+
+  it("should return 404 response code, impossible get by id", function (done) {
+    fetch(
+      "http://localhost:3000/api/changesLog/622655b?access_token=t8YAoFLv0mjP4JiEzcvnvO71J81o8OempNX2Yt6UV2gGhhngGhVTwjsJtxttRQgR",
+      {
+        method: "get",
+      }
+    ).then(function (response) {
+      expect(response.status).toEqual(404);
+      done();
+    });
+>>>>>>> 463a40179e9ffe4d847de42e2441e5759180a431
   });
 
   // it("should create", () => {

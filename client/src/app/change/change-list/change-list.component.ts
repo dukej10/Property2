@@ -76,12 +76,12 @@ export class ChangeListComponent implements OnInit {
 
   condition(condicion) {
     this.cList = [];
-    console.log("LLEGÓ ", condicion);
+    //console.log("LLEGÓ ", condicion);
     for (let prop of this.changeList) {
       if (prop.code.toString().toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
         this.codeProperty = prop.code;
-        console.log(typeof condicion);
+        console.log("ID ", prop.id);
       }
       if (prop.name.toString().toUpperCase() == condicion.toUpperCase()) {
         this.cList.push(prop);
